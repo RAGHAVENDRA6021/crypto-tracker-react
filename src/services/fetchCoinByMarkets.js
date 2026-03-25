@@ -7,7 +7,9 @@ export async function fetchCoinByMarket(currency = "usd", page = 1) {
       `/coins/markets?vs_currency=${currency}&page=${page}&per_page=${perPage}`,
     );
     console.log(response);
+    return response.data;
   } catch (error) {
     console.log(error);
+    return error;
   }
 }
