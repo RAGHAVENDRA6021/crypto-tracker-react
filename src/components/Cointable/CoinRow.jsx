@@ -1,8 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const CoinRow = ({ row }) => {
+  const navigate = useNavigate();
+  const redirectCoinDetails = (id) => {
+    navigate(`/details/${id}`);
+  };
+
   return (
-    <div className="bg-amber-200 font-semibold  text-black flex gap-4 h-15 justify-center items-center border-2  rounded-md">
+    <div
+      className="bg-amber-200 font-semibold  text-black flex gap-4 h-15 justify-center items-center border-2  rounded-md cursor-pointer"
+      onClick={() => redirectCoinDetails(row.id)}
+    >
       <div className="basis-[30%] flex px-5 items-center ">
         <div className="flex gap-4">
           <div className="h-10 w-10">

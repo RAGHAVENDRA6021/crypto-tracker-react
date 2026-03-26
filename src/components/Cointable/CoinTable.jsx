@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useQueryClient, useQuery } from "@tanstack/react-query";
+import React, { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { fetchCoinByMarket } from "../../services/fetchCoinByMarkets";
 import CoinRow from "./CoinRow";
 
@@ -8,7 +8,7 @@ const CoinTable = () => {
   const [page, setPage] = useState(1);
 
   // Queries
-  const { data, isLoading, isError } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["coins", page],
     queryFn: () => fetchCoinByMarket("usd", page),
     retry: 1,
